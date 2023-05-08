@@ -1,5 +1,5 @@
 <?php
-    $config = require_once __DIR__."/../config.php";
+    $config = require_once __DIR__."/config.php";
 
     function db($query){
         $database = require_once __DIR__."/../database.php";
