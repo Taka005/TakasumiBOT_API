@@ -55,13 +55,4 @@
     }
     
     print json_encode($res,JSON_UNESCAPED_SLASHES|JSON_PARTIAL_OUTPUT_ON_ERROR|JSON_UNESCAPED_UNICODE);
-
-    function is_animated($image){
-        $ext = substr($image,0,2);
-        if($ext == "a_"){
-            return ".gif";
-        }else{
-            return ".png";
-        }
-    }
 ?>
