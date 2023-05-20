@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__."/../../../config.php";
+    $config = require_once __DIR__."/../../../config.php";
     header("Content-Type: application/json; charset=UTF-8");
     
     if(isset($_GET["id"])){
@@ -8,7 +8,7 @@
         curl_setopt($ch,CURLOPT_URL,"https://discord.com/api/v10/users/".$id); 
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch,CURLOPT_HTTPHEADER,array(
-            "Authorization: Bot ".$token,
+            "Authorization: Bot ".$config["token"],
             "Content-type: application/json"
         ));
         $results =  curl_exec($ch);
