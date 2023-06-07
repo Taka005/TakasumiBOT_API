@@ -1,5 +1,6 @@
 <?php
     $config = require_once __DIR__."/../../config.php";
+    require_once __DIR__."../../lib.php";
     header("Content-Type: application/json; charset=UTF-8");
     
     if(isset($_GET["id"])){
