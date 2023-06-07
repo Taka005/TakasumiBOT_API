@@ -3,7 +3,7 @@
 
     header("Content-Type: application/json; charset=UTF-8");
     
-    $data = db("SELECT * FROM log ORDER BY time ASC;");
+    $data = db("SELECT * FROM log ORDER BY time ASC;")->fetchALL(PDO::FETCH_BOTH);
 
 
     $res["success"] = true;
