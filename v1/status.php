@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__."../lib.php";
+    require_once __DIR__."/../lib.php";
 
     header("Content-Type: application/json; charset=UTF-8");
     
