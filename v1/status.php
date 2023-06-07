@@ -1,8 +1,8 @@
 <?php
     require_once __DIR__."/../lib.php";
     
-    header("Content-Type: application/json;");
-    header("Access-Control-Allow-Origin: *;");
+    header("Content-Type: application/json");
+    header("Access-Control-Allow-Origin: *");
     
     $data = db("SELECT * FROM log ORDER BY time ASC;")->fetchALL();
 
