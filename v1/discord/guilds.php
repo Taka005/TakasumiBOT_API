@@ -17,7 +17,6 @@
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch,CURLOPT_HTTPGET,true);
         curl_setopt($ch,CURLOPT_GETFIELDS,http_build_query([
-            "limit"=>200,
             "after"=>$after
         ]));
 
@@ -31,11 +30,15 @@
 
     $res["success"] = true;
     $res["message"] = null;
-    $res["data"] = array_map(function($guild){
-        return (object)[
-            $guild["id"]=>[$guild["name"],$guild["approximate_member_count"],$guild["approximate_presence_count"]]
+    $res["data"] = [];
+
+    foreach ($guilds as $guild) {
+        $res["data"][$guild["id"]] = [
+            "name" => $guild["name"],
+            "memberCount" => $guild["approximate_member_count"],
+            "presenceCount" => $guild["approximate_presence_count"]
         ];
-    },$guilds);
+    }
   
     print json_encode($res,JSON_UNESCAPED_SLASHES|JSON_PARTIAL_OUTPUT_ON_ERROR|JSON_UNESCAPED_UNICODE);
 ?>
