@@ -1,6 +1,7 @@
 <?php
     $config = require_once __DIR__."/../../config.php";
     require_once __DIR__."/../../lib.php";
+    
     header("Content-Type: application/json");
     header("Access-Control-Allow-Origin: *");
     
