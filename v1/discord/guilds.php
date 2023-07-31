@@ -9,12 +9,12 @@
         "token"=>$config["token2"]
     ));
 
-    if($res["success"]){
+    if($guilds["success"]){
         $res["success"] = true;
         $res["message"] = null;
         $res["data"] = [];
 
-        foreach ($guilds as $guild) {
+        foreach ($guilds["data"] as $guild) {
             $res["data"][$guild["id"]] = [
                 "name" => $guild["name"],
                 "memberCount" => $guild["approximate_member_count"],
@@ -26,6 +26,6 @@
         $res["message"] = "Error";
         $res["data"] = null;
     }
-    
+
     print json_encode($res,JSON_UNESCAPED_SLASHES|JSON_PARTIAL_OUTPUT_ON_ERROR|JSON_UNESCAPED_UNICODE);
 ?>
