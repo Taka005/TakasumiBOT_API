@@ -6,7 +6,7 @@
     header("Access-Control-Allow-Origin: *");
     
     $guilds = Post("https://api.gakerbot.net/guilds",array(
-        "token"=>$config["token"]
+        "token"=>$config["token2"]
     ));
 
     if($res["success"]){
