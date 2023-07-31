@@ -10,7 +10,6 @@
     ));
 
     if($res["success"]){
-
         $res["success"] = true;
         $res["message"] = null;
         $res["data"] = [];
@@ -24,7 +23,7 @@
         }
     }else{
         $res["success"] = false;
-        $res["message"] = "Unknown";
+        $res["message"] = "Error";
         $res["data"] = null;
     }
     
