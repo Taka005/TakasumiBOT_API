@@ -4,7 +4,7 @@
     header("Content-Type: application/json");
     header("Access-Control-Allow-Origin: *");
     
-    $data = db("SELECT * FROM server;")->fetchALL();
+    $data = db("SELECT * FROM server ORDER BY time ASC;")->fetchALL();
 
     $res["success"] = true;
     $res["message"] = null;
