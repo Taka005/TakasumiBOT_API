@@ -10,7 +10,7 @@
 
     do{
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"https://discord.com/api/v10/users/@me/guilds");
+        curl_setopt($ch, CURLOPT_URL,"https://discord.com/api/v10/users/@me/guilds?with_counts=true");
         curl_setopt($ch, CURLOPT_HTTPHEADER,array(
             "Authorization: Bot ".$config["token2"]
         ));
@@ -18,8 +18,7 @@
         curl_setopt($ch,CURLOPT_HTTPGET,true);
         curl_setopt($ch,CURLOPT_GETFIELDS,http_build_query([
             "limit"=>200,
-            "after"=>$after,
-            "with_counts"=>true
+            "after"=>$after
         ]));
 
         $response = curl_exec($ch);
