@@ -17,6 +17,7 @@
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch,CURLOPT_HTTPGET,true);
         curl_setopt($ch,CURLOPT_GETFIELDS,http_build_query([
+            "limit"=>200,
             "after"=>$after,
             "with_counts"=>true
         ]));
