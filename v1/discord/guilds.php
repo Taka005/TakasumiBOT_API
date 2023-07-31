@@ -5,7 +5,7 @@
     header("Content-Type: application/json");
     header("Access-Control-Allow-Origin: *");
     
-    $guilds = Post("https://api.gakerbot.net/guilds",array(
+    $guilds = Post("https://api.gakerbot.net/guilds?cache=21600000",array(
         "token"=>$config["token2"]
     ));
 
