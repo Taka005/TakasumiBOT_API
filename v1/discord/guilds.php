@@ -26,6 +26,8 @@
         $data = json_decode($response, true);
         $guilds = array_merge($guilds, $data);
         $after = end($data)["id"] ?? null;
+
+        sleep(1);
     }while(count($data) == 200);
 
     $res["success"] = true;
