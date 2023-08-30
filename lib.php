@@ -1,10 +1,10 @@
 <?php
-    $config = require_once __DIR__."/config.php";
-    
-    $pdo = new PDO("mysql:host=".$config["db_host"].";dbname=".$config["db_name"].";charset=utf8mb4",$config["db_user"],$config["db_password"]);
-
     function db($query){
-        return $pdo->query($query);
+        $config = require_once __DIR__."/config.php";  
+        $pdo = new PDO("mysql:host=".$config["db_host"].";dbname=".$config["db_name"].";charset=utf8mb4",$config["db_user"],$config["db_password"]);  
+        $res = $pdo->query($query);
+        $pdo = null;
+        return $res;
     }
 
     function is_animated($image){
