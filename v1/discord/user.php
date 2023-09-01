@@ -30,7 +30,7 @@
                 "global_name"=> $user["global_name"],
                 "discriminator"=> $user["discriminator"],
                 "tag"=> $user["discriminator"] == 0?$user["username"] : $user["username"]."#".$user["discriminator"],
-                "bot"=> $user["bot"],
+                "bot"=> !is_null($user["bot"])?true : false,
                 "avatarURL"=> $avatar,
                 "avatar"=> $user["avatar"],
                 "bannerURL"=> $banner,
