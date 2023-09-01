@@ -7,6 +7,7 @@
     
     if(isset($_GET["id"])){
         $id = htmlspecialchars($_GET["id"]);
+
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,"https://discord.com/api/v10/users/".$id); 
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -14,30 +15,20 @@
             "Authorization: Bot ".$config["token"],
             "Content-type: application/json"
         ));
-        $results =  curl_exec($ch);
+        $user = json_decode(curl_exec($ch),true);
         curl_close($ch);
-        $user = json_decode($results,true);
 
         if(!isset($user["message"])){
-            if(!is_null($user["avatar"])){
-                $avatar = "https://cdn.discordapp.com/avatars/".$user["id"]."/".$user["avatar"].is_animated($user["avatar"])."?size=1024";
-            }else{
-                $avatar = null;
-            }
-
-            if(!is_null($user["banner"])){
-                $banner = "https://cdn.discordapp.com/banners/".$user["id"]."/".$user["banner"].is_animated($user["banner"])."?size=1024";
-            }else{
-                $banner = null;
-            }
+            $avatar = !is_null($user["avatar"])?"https://cdn.discordapp.com/avatars/".$user["id"]."/".$user["avatar"].is_animated($user["avatar"])."?size=1024" : null;
+            $banner = !is_null($user["avatar"])?"https://cdn.discordapp.com/banners/".$user["id"]."/".$user["banner"].is_animated($user["banner"])."?size=1024" : null;
 
             $res["success"] = true;
             $res["message"] = null;
-            $res["data"] = (object)[
+            $res["data"] = [
                 "id"=> $user["id"],
                 "username"=> $user["username"],
                 "discriminator"=> $user["discriminator"],
-                "tag"=> $user["username"]."#".$user["discriminator"],
+                "tag"=> $user["discriminator"] == 0?$user["username"] : $user["username"]."#".$user["discriminator"],
                 "avatarURL"=> $avatar,
                 "avatar"=> $user["avatar"],
                 "bannerURL"=> $banner,
@@ -53,7 +44,7 @@
         }
     }else{
         $res["success"] = false;
-        $res["message"] = "Parameter Not Found";
+        $res["message"] = "UserID Not Found";
         $res["data"] = null;
     }
     
