@@ -27,8 +27,10 @@
             $res["data"] = [
                 "id"=> $user["id"],
                 "username"=> $user["username"],
+                "global_name"=> $user["global_name"],
                 "discriminator"=> $user["discriminator"],
                 "tag"=> $user["discriminator"] == 0?$user["username"] : $user["username"]."#".$user["discriminator"],
+                "bot"=> $user["bot"],
                 "avatarURL"=> $avatar,
                 "avatar"=> $user["avatar"],
                 "bannerURL"=> $banner,
