@@ -20,7 +20,7 @@
         curl_close($ch);
 
         if(!isset($guild["message"])){
-            $icon = !is_null($guild["icon"])?"https://cdn.discordapp.com/icons/".$guild["id"]."/".$guild["icon"].is_animated($user["icon"])."?size=1024" : null;
+            $icon = !is_null($guild["icon"])?"https://cdn.discordapp.com/icons/".$guild["id"]."/".$guild["icon"].is_animated($guild["icon"])."?size=1024" : null;
 
             $res["success"] = true;
             $res["message"] = null;
