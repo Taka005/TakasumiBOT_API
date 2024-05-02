@@ -7,11 +7,17 @@
     if(isset($_GET["id"])){
         $id = htmlspecialchars($_GET["id"]);
 
-        $data = DB::query("SELECT * FROM gift WHERE id = ".$id)->fetchALL();
+        $data = DB::query("SELECT * FROM gift WHERE id = ".$id);
 
-        $res["success"] = true;
-        $res["message"] = null;
-        $res["data"] = $data;
+        if($data){
+            $res["success"] = true;
+            $res["message"] = null;
+            $res["data"] = $data->fetchALL();
+        }else{
+            $res["success"] = false;
+            $res["message"] = "GiftCode Is Invalid";
+            $res["data"] = null;
+        }
     }else{
         $res["success"] = false;
         $res["message"] = "GiftCode Not Found";
