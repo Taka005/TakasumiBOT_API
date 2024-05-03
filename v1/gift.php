@@ -12,7 +12,7 @@
         if($data){
             $res["success"] = true;
             $res["message"] = null;
-            $res["data"] = $data;
+            $res["data"] = $data[0];
         }else{
             $res["success"] = false;
             $res["message"] = "GiftCode Is Invalid";
