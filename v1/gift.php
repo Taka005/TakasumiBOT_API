@@ -7,7 +7,7 @@
     if(isset($_GET["id"])){
         $id = htmlspecialchars($_GET["id"]);
 
-        $data = DB::query("SELECT * FROM gift WHERE id = ".$id);
+        $data = DB::query("SELECT * FROM gift WHERE id = '".$id."';");
 
         if($data){
             $res["success"] = true;
