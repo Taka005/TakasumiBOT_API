@@ -7,12 +7,12 @@
     if(isset($_GET["id"])){
         $id = htmlspecialchars($_GET["id"]);
 
-        $data = DB::query("SELECT * FROM gift WHERE id = '".$id."';");
+        $data = DB::query("SELECT * FROM gift WHERE id = '".$id."';")->fetchALL();
 
         if($data){
             $res["success"] = true;
             $res["message"] = null;
-            $res["data"] = $data->fetchALL();
+            $res["data"] = $data;
         }else{
             $res["success"] = false;
             $res["message"] = "GiftCode Is Invalid";
