@@ -7,7 +7,7 @@
     if(isset($_GET["id"])){
         $id = htmlspecialchars($_GET["id"]);
 
-        $data = DB::query("SELECT * FROM history WHERE user = '".$id."';")->fetchALL();
+        $data = DB::query("SELECT * FROM history WHERE user = '".$id."' ORDER BY time;")->fetchALL();
 
         if($data){
             $res["success"] = true;
