@@ -12,7 +12,7 @@
         if($data){
             $res["success"] = true;
             $res["message"] = null;
-            $res["data"] = $data[0];
+            $res["data"] = $data;
         }else{
             $res["success"] = false;
             $res["message"] = "No History";
