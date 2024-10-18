@@ -1,1 +1,2 @@
 # TakasumiBOT_API
+TakasumiBOTのAPIサーバー
